@@ -13,10 +13,10 @@ const NavMenu = () => {
   return (
     <>
       {/* Hamburgarikonen för att öppna/stänga menyn */}
-      <div className="block lg:hidden">
+      <div className=" flex items-center ">
         <button onClick={toggleMenu} className="focus:outline-none">
           <img
-            src="/src/components/hamburgermenu.png"
+            src="/hamburgermenu.png"
             alt="Hamburgermeny"
             style={{ width: "24px", height: "24px" }}
           />
