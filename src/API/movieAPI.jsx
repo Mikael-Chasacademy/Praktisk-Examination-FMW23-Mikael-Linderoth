@@ -1,4 +1,4 @@
-//Fetchar popular movies
+//Fetchar populära filmer
 export async function fetchPopularMovies() {
   // https://developer.themoviedb.org/reference/movie-popular-list
   try {
@@ -30,5 +30,22 @@ export async function fetchMovieQuery(query) {
   } catch (error) {
     console.error("Failed fetching search results:", error);
     throw error; // Skickar vidare felet så att det hanteras i slice
+  }
+}
+
+//Fetchar film detaljer
+export async function fetchMovieDetails(movieId) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=ffa5812af28cf08566bde8315c29af28&language=en-US`
+    );
+    if (!response.ok) {
+      throw new Error("Något gick fel vid hämtning av filmens detaljer");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed fetching movie details:", error);
+    throw error;
   }
 }
