@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "../Redux/movieSlice.jsx";
 import { MovieCard } from "../components/MovieCard.jsx";
@@ -22,6 +23,20 @@ function HomePage() {
   return (
     //Start sidan
     <div className="p-5 text-center">
+      {/* SEO - allt syns under inspektorn under element */}
+      <Helmet>
+        <title>MickeMovies – Upptäck populära filmer</title>
+        <meta
+          name="description"
+          content="Upptäck de senaste populära filmerna och spara dina favoriter på MickeMovies."
+        />
+        <meta
+          name="keywords"
+          content="filmer, populära filmer, favoriter, sök film, MickeMovies"
+        />
+      </Helmet>
+      {/* SEO - allt syns under inspektorn under element */}
+
       <h1 className="text-3xl font-bold mb-6">Välkommen till MickeMovies!</h1>
 
       {movieStatus === "loading" && <p className="text-lg">Laddar filmer...</p>}
