@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // För att hämta filmens id från URL:en
 import { fetchMovieDetails } from "../API/movieAPI";
+import { Helmet } from "react-helmet-async";
 import FavoriteButton from "../components/FavoriteButton";
 
 const MovieDetails = () => {
   const { id } = useParams(); // Hämta filmens id från URL:en
   const [movie, setMovie] = useState(null);
 
+  // Hämta detaljerna för filmen baserat på id
   useEffect(() => {
-    // Hämta detaljerna för filmen baserat på id
     const getMovieDetails = async () => {
       const data = await fetchMovieDetails(id); // Hämta filmens detaljer
       setMovie(data); // Spara filmens data i state
@@ -22,6 +23,13 @@ const MovieDetails = () => {
 
   return (
     <div className="p-5">
+      {/* SEO - läser upp filmnamn under inspektor-element */}
+      <Helmet>
+        <title>{movie.title} – MickeMovies</title>
+        <meta name="description" content={movie.overview} />
+      </Helmet>
+      {/* SEO - läser upp filmnamn under inspektor-element */}
+
       <h1 className="text-4xl font-bold mb-6">{movie.title}</h1>
       <img
         className="w-full h-96 object-cover rounded mb-4"

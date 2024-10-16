@@ -1,0 +1,2 @@
+kör "lt --port 5173" i en ny terminalen efter att vi startar projektet för att få en
+tillfällig URL som vi kan använda till google analytics.
