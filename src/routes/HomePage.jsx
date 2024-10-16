@@ -38,6 +38,7 @@ function HomePage() {
               key={movie.id}
               title={movie.title}
               posterPath={movie.poster_path} // Skickar filmens poster_path och titel som props
+              movie={movie}
             />
           ))}
         </div>
