@@ -14,7 +14,7 @@ function App() {
 
   return (
     <HelmetProvider>
-      <main>
+      <main className=" h-screen w-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

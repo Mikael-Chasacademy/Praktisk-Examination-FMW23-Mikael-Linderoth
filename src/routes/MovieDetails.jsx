@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"; // För att hämta filmens id frå
 import { fetchMovieDetails } from "../API/movieAPI";
 import { Helmet } from "react-helmet-async";
 import FavoriteButton from "../components/FavoriteButton";
+import BackButton from "../components/BackButton";
 
 const MovieDetails = () => {
   const { id } = useParams(); // Hämta filmens id från URL:en
@@ -28,27 +29,36 @@ const MovieDetails = () => {
         <title>{movie.title} – MickeMovies</title>
         <meta name="description" content={movie.overview} />
       </Helmet>
-      {/* SEO - läser upp filmnamn under inspektor-element */}
 
-      <h1 className="text-4xl font-bold mb-6">{movie.title}</h1>
-      <img
-        className="w-full h-96 object-cover rounded mb-4"
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={`${movie.title} Poster`}
-      />
-      <FavoriteButton movie={movie} />
-      {/* VAD ÄR STRONG? */}
-      <p>
-        <strong>År:</strong> {movie.release_date}
-      </p>
-      <p>
-        <strong>Genre:</strong>{" "}
-        {movie.genres.map((genre) => genre.name).join(", ")}
-      </p>
-      <p>
-        <strong>Handling:</strong> {movie.overview}
-      </p>
-      {/* VAD ÄR STRONG? */}
+      <BackButton />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Bildsektion */}
+        <div>
+          <img
+            className="w-full h-full object-cover rounded mb-4"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={`${movie.title} Poster`}
+          />
+        </div>
+
+        {/* Detaljsektion */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
+          <FavoriteButton movie={movie} />
+          {/* VAD ÄR STRONG */}
+          <p>
+            <strong>År:</strong> {movie.release_date}
+          </p>
+          <p>
+            <strong>Genre:</strong>{" "}
+            {movie.genres.map((genre) => genre.name).join(", ")}
+          </p>
+          <p>
+            <strong>Handling:</strong> {movie.overview}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
