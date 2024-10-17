@@ -71,11 +71,10 @@ Du kan lägga till och ta bort filmer från din favoritlista:
 
 Denna applikation har integrerat Google Tag Manager (GTM) och Google Analytics för att spåra användarbeteenden och interaktioner. Följande steg har vidtagits:
 
-1. GTM har lagts till i applikationens index.html.
+1. GTM har lagts till i applikationens index.html, main.jsx och favoriteButton.jsx.
 
-2. Google Analytics är kopplad via GTM för att spåra sidvisningar och specifika händelser (som att lägga till en film i favoriter).
-
-3. Du kan granska data och interaktioner i realtid genom att logga in på ditt Google Analytics-konto och navigera till realtidsfliken.
+2. Du kan granska data och interaktioner i realtid genom att logga in på ditt Google Analytics/tag manager-konto och följa denna video från 14:40 för att bygga upp Analytics/tag manage för att sedan kunna se via realtid ifrån google analytics när vi lägger till filmer till Favoriter.
+   https://us06web.zoom.us/rec/play/uFFVEH5rHDlqx9MprqQeWADtOituOM9m8bEtnh1cERHzdYlb_2O_JtTsbM4e4NpnGMID0RRmH8-0JZyO.UK_ZVmomwXD15ppg?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FYRBJVwIai9k2UzEvc0SPK8Pt4Y7luUu7yxauWvpv59u6Xf7nKDGrawhKmtN6bijY.jKAbEwDEJuUF4_Hz.
 
 # Testning med Cypress
 
