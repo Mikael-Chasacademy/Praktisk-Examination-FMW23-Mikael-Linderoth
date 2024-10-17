@@ -5,6 +5,13 @@ import { BrowserRouter } from "react-router-dom";
 import store from "./Redux/store.jsx";
 import App from "./App.jsx";
 import "./index.css";
+import TagManager from "react-gtm-module";
+
+const tagManagerArgs = {
+  gtmId: "GTM-MDZRP282",
+};
+
+TagManager.initialize(tagManagerArgs);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

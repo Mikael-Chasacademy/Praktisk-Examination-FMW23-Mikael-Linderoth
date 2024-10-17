@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { addToFavorites, removeFromFavorites } from "../Redux/favoriteSlice";
 
 export const FavoriteButton = ({ movie }) => {
@@ -12,29 +13,24 @@ export const FavoriteButton = ({ movie }) => {
 
   const handleAddToFavorites = () => {
     dispatch(addToFavorites(movie)); // Lägg till film i favoriter
-
-    // Skicka händelse till Google Tag Manager
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "add_to_favorites", // Namnet på händelsen
-      movie_title: movie.title, // Extra information om filmen
-      movie_id: movie.id,
-    });
-
-    console.log("window.dataLayer efter push:", window.dataLayer);
   };
 
   const handleRemoveFromFavorites = () => {
     dispatch(removeFromFavorites(movie.id)); // Ta bort film från favoriter
-
-    // Skicka händelse till Google Tag Manager för borttagning
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "remove_from_favorites", // Namnet på händelsen
-      movie_title: movie.title, // Extra information om filmen
-      movie_id: movie.id,
-    });
   };
+
+  useEffect(() => {
+    if (isFavorite) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "add_to_favorites", // Namnet på händelsen
+        movie_id: movie.id,
+        movie_title: movie.title, // Extra information om filmen
+      });
+
+      console.log("window.dataLayer efter push:", window.dataLayer);
+    }
+  }, [isFavorite]);
 
   return (
     <>
