@@ -10,15 +10,13 @@ function HomePage() {
   const movies = useSelector((state) => state.movies.movies);
   const movieStatus = useSelector((state) => state.movies.status);
   const error = useSelector((state) => state.movies.error);
-  //Delar av state från redux store
 
-  //VAD GÖR DET HÄR
+  //Hämtar filmer från API när komponenten laddas
   useEffect(() => {
     if (movieStatus === "idle") {
       dispatch(fetchMovies());
     }
   }, [movieStatus, dispatch]);
-  //VAD GÖR DET HÄR
 
   return (
     //Start sidan
