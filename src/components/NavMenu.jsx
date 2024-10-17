@@ -25,7 +25,7 @@ const NavMenu = () => {
 
       {/* Menyn som visas när isOpen är true */}
       {isOpen && (
-        <div className="lg:hidden absolute top-16 right-4 bg-gray-800 rounded-lg p-4 shadow-lg space-y-4">
+        <div className=" absolute top-16 right-4 bg-gray-800 rounded-lg p-4 shadow-lg space-y-4">
           <Link
             to="/favorites"
             className="text-white p-2 bg-blue-500 rounded hover:bg-blue-600 block"
