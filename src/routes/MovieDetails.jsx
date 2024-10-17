@@ -6,7 +6,7 @@ import FavoriteButton from "../components/FavoriteButton";
 import BackButton from "../components/BackButton";
 
 const MovieDetails = () => {
-  const { id } = useParams(); // Hämta filmens id från URL:en
+  const { id } = useParams(); // Hämta filmens id från APIns URL
   const [movie, setMovie] = useState(null);
 
   // Hämta detaljerna för filmen baserat på id
@@ -46,7 +46,7 @@ const MovieDetails = () => {
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
           <FavoriteButton movie={movie} />
-          {/* VAD ÄR STRONG */}
+          {/* Strong markerar text som viktig info. Text blir fet */}
           <p>
             <strong>År:</strong> {movie.release_date}
           </p>

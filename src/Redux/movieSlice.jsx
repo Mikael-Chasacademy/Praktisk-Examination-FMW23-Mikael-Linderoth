@@ -18,6 +18,8 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 });
 // AsyncThunk för att hämta filmer från API
 
+//När API hämtas sammlas alla filer i Movie[] arrayen.
+//Status: ändras från Idle till loading/failed/success beroende på api-anropet
 const movieSlice = createSlice({
   name: "movies",
   initialState: {

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { MovieCard } from "../components/MovieCard";
 import BackButton from "../components/BackButton";
 
+//Hämtar lista med favoritfilmer från favoriteslice
 const FavoriteList = () => {
   const favorites = useSelector((state) => state.favorites.favorites);
 

@@ -7,6 +7,8 @@ export const FavoriteButton = ({ movie }) => {
   const favorites = useSelector((state) => state.favorites.favorites);
 
   // Kontrollerar om filmen redan är i favoriter
+  //favorites.some(): Går igenom alla filmer i favoritlistan.
+  //(fav) => fav.id === movie.id: Jämför varje films ID i favoritlistan (fav.id) med den aktuella filmens ID (movie.id).
   const isFavorite = favorites.some((fav) => fav.id === movie.id);
 
   const handleAddToFavorites = () => {
